@@ -31,15 +31,22 @@ class TelegramBot(BottleHandlerMixing, Bottle):
         return text[::-1]
 
     def prepare_data_for_answer(self, data):
+        message = self.get_message(data)
+        answer = self.change_text_message(message)
+        chat_id = self.get_chat_id(data)
+
         json_data = {
-            'chat_id': '',
-            'text': '',
+            'chat_id': chat_id,
+            'text': answer,
             }
 
         return json_data
 
     def post_handler(self):
-
+        data = bottle_request.json
+        answer_data = self.prepare_data_for_answer(data)
+        self.send_message(answer_data)
+        
         return response
 
 

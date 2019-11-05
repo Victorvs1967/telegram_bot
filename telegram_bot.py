@@ -46,10 +46,15 @@ class TelegramBot(BottleHandlerMixing, Bottle):
         data = bottle_request.json
         answer_data = self.prepare_data_for_answer(data)
         self.send_message(answer_data)
-        
+
         return response
 
 
 if __name__ == '__main__':
     app = TelegramBot()
     app.run(host='localhost', port=8080, debug=True)
+
+# TODO: runing telegram bot on local
+# python telegram_bot.py
+# ./ngrok http localhost:8080
+# https://api.telegram.org/bot1032773380:AAEnx75tFJd9R659Erx9js-J--bIuUrIAiU/setWebHook?url= <URL FROM NGROK>

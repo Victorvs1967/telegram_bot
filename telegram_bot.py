@@ -57,4 +57,5 @@ if __name__ == '__main__':
 # TODO: runing telegram bot on local
 # python telegram_bot.py
 # ./ngrok http localhost:8080
-# https://api.telegram.org/ <TELEGRAM KEY> ?url= <URL FROM NGROK>
+# https://api.telegram.org/ <TELEGRAM KEY> /setWebHook?url= <URL FROM NGROK>
+
